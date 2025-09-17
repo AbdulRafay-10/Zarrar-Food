@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burger Detail</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <style>
+    /* Page-specific layout tweaks for dropdown alignment and spacing */
+    #product-detail .dropdown .trigger { display: flex; align-items: center; justify-content: flex-start; padding: 8px 12px; }
+    #product-detail .dropdown .list { padding: 8px 12px; box-sizing: border-box; }
+    #product-detail .article { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    #product-detail .article.column { flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 8px; }
+    #product-detail .article > span { display: flex; align-items: center; gap: 8px; }
+    /* Utility: prevent label wraps where requested */
+    .nowrap { white-space: nowrap; }
+    /* Burger Size: per-option borders */
+    #burger-size-list label { border: 1px solid #eee; border-radius: 8px; padding: 8px 12px; background: #fff; }
+    #burger-size-list label + label { margin-top: 6px; }
+  </style>
+</head>
+<body id="top">
+  <section class="section product-detail" id="product-detail">
+    <div class="container">
+      <div class="product-detail-wrapper">
+        <div class="product-image-section">
+          <div class="product-image-container">
+            <img id="product-image" class="product-image" alt="Burger">
+            <div class="badge" id="product-badge">-15%</div>
+          </div>
+        </div>
+        <div class="product-info-section">
+          <a href="/index.html#food-menu" class="back-btn"><ion-icon name="arrow-back-outline"></ion-icon><span>Back to Menu</span></a>
+          <h1 id="product-title" class="product-title">Burger</h1>
+          <p id="product-description" class="product-description">Customize your burger.</p>
+          <div class="product-price"><span class="price-label">Price:</span> <data id="current-price" class="current-price">$0.00</data> <del id="original-price" class="original-price" style="display:none"></del></div>
+          
+          <!-- Burger Size (Patty Count + Size) -->
+          <div class="dropdown" style="margin-bottom: 20px;">
+            <input hidden class="sr-only" name="burger-size-dropdown" id="burger-size-dropdown" type="checkbox" />
+            <label aria-label="dropdown scrollbar" for="burger-size-dropdown" class="trigger">Burger Size</label>
+            <ul class="list webkit-scrollbar" role="list" dir="auto" id="burger-size-list">
+              <li class="listitem" role="listitem">
+                <article class="article column">
+                  <strong>Patty Count</strong>
+                  <div style="display:grid;gap:6px;margin-top:8px;">
+                    <label style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+                      <span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="burger-patty-count" value="single" data-multiplier="1.0" checked> <span>Single patty</span></span>
+                      <span class="size-price" data-bp-display>$0.00</span>
+                    </label>
+                    <label style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+                      <span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="burger-patty-count" value="double" data-multiplier="1.6"> <span>Double patty</span></span>
+                      <span class="size-price" data-bp-display>$0.00</span>
+                    </label>
+                    <label style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+                      <span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="burger-patty-count" value="triple" data-multiplier="2.2"> <span>Triple patty</span></span>
+                      <span class="size-price" data-bp-display>$0.00</span>
+                    </label>
+                  </div>
+                </article>
+              </li>
+              <li class="listitem" role="listitem">
+                <article class="article column">
+                  <strong>Size</strong>
+                  <div style="display:grid;gap:6px;margin-top:8px;">
+                    <label style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+                      <span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="burger-size" value="regular" data-multiplier="1.0" checked> <span>Regular</span></span>
+                      <span class="size-price" data-bp-display>$0.00</span>
+                    </label>
+                    <label style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+                      <span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="burger-size" value="large" data-multiplier="1.2"> <span>Large</span></span>
+                      <span class="size-price" data-bp-display>$0.00</span>
+                    </label>
+                  </div>
+                </article>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Burger Patty Type -->
+          <div class="dropdown" style="margin-bottom: 20px;">
+            <input hidden class="sr-only" name="burger-pattytype-dropdown" id="burger-pattytype-dropdown" type="checkbox" />
+            <label aria-label="dropdown scrollbar" for="burger-pattytype-dropdown" class="trigger">Burger Patty Type</label>
+            <ul class="list webkit-scrollbar" role="list" dir="auto" id="burger-pattytype-list">
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="burger-pattytype" value="beef" data-price="0" checked> <span>Beef</span></span><span class="size-price">$0.00</span></label></li>
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="burger-pattytype" value="chicken" data-price="0"> <span>Chicken</span></span><span class="size-price">$0.00</span></label></li>
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="burger-pattytype" value="fish" data-price="0.50"> <span>Fish</span></span><span class="size-price">$0.50</span></label></li>
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="burger-pattytype" value="veggie" data-price="0"> <span>Veggie</span></span><span class="size-price">$0.00</span></label></li>
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="burger-pattytype" value="vegan" data-price="0.75"> <span>Vegan</span></span><span class="size-price">$0.75</span></label></li>
+            </ul>
+          </div>
+
+          <!-- Cheese Options -->
+          <div class="dropdown" style="margin-bottom: 20px;">
+            <input hidden class="sr-only" name="burger-cheese-dropdown" id="burger-cheese-dropdown" type="checkbox" />
+            <label aria-label="dropdown scrollbar" for="burger-cheese-dropdown" class="trigger">Cheese Options</label>
+            <ul class="list webkit-scrollbar" role="list" dir="auto" id="burger-cheese-list">
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="burger-cheese" value="cheddar" data-price="0" checked> <span>Cheddar</span></span><span class="size-price">$0.00</span></label></li>
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="burger-cheese" value="mozzarella" data-price="0"> <span>Mozzarella</span></span><span class="size-price">$0.00</span></label></li>
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="burger-cheese" value="swiss" data-price="0"> <span>Swiss</span></span><span class="size-price">$0.00</span></label></li>
+              <li class="listitem" role="listitem"><label class="article nowrap" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;" class="nowrap"><input type="checkbox" name="burger-cheese" value="none" data-price="0"> <span class="nowrap">No Cheese</span></span><span class="size-price">$0.00</span></label></li>
+            </ul>
+          </div>
+
+          <!-- Add-Ons (Extras) -->
+          <div class="dropdown" style="margin-bottom: 20px;">
+            <input hidden class="sr-only" name="burger-addons-dropdown" id="burger-addons-dropdown" type="checkbox" />
+            <label aria-label="dropdown scrollbar" for="burger-addons-dropdown" class="trigger">Add-Ons (Extras)</label>
+            <ul class="list webkit-scrollbar" role="list" dir="auto" id="burger-addons-list">
+              <li class="listitem" role="listitem"><label class="article nowrap" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;" class="nowrap"><input type="checkbox" name="burger-addon" value="extra-patty" data-price="2.50"> <span class="nowrap">Extra Patty</span></span><span class="size-price">$2.50</span></label></li>
+              <li class="listitem" role="listitem"><label class="article nowrap" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;" class="nowrap"><input type="checkbox" name="burger-addon" value="extra-cheese" data-price="1.50"> <span class="nowrap">Extra Cheese</span></span><span class="size-price">$1.50</span></label></li>
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="burger-addon" value="egg" data-price="1.00"> <span>Egg</span></span><span class="size-price">$1.00</span></label></li>
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="burger-addon" value="bacon" data-price="2.00"> <span>Bacon</span></span><span class="size-price">$2.00</span></label></li>
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="burger-addon" value="jalapenos" data-price="0.75"> <span>Jalapeños</span></span><span class="size-price">$0.75</span></label></li>
+            </ul>
+          </div>
+
+          <!-- Veggies & Fillings -->
+          <div class="dropdown" style="margin-bottom: 20px;">
+            <input hidden class="sr-only" name="burger-veggies-dropdown" id="burger-veggies-dropdown" type="checkbox" />
+            <label aria-label="dropdown scrollbar" for="burger-veggies-dropdown" class="trigger">Veggies & Fillings</label>
+            <ul class="list webkit-scrollbar" role="list" dir="auto" id="burger-veggies-list">
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="burger-veggie" value="lettuce" data-price="0"> <span>Lettuce</span></span><span class="size-price">$0.00</span></label></li>
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="burger-veggie" value="tomato" data-price="0"> <span>Tomato</span></span><span class="size-price">$0.00</span></label></li>
+              <li class="listitem" role="listitem"><label class="article nowrap" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;" class="nowrap"><input type="checkbox" name="burger-veggie" value="onion" data-price="0"> <span class="nowrap">Onion (grilled or raw)</span></span><span class="size-price">$0.00</span></label></li>
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="burger-veggie" value="pickles" data-price="0"> <span>Pickles</span></span><span class="size-price">$0.00</span></label></li>
+            </ul>
+          </div>
+
+          <!-- Sauces / Condiments -->
+          <div class="dropdown" style="margin-bottom: 20px;">
+            <input hidden class="sr-only" name="burger-sauces-dropdown" id="burger-sauces-dropdown" type="checkbox" />
+            <label aria-label="dropdown scrollbar" for="burger-sauces-dropdown" class="trigger">Sauces / Condiments</label>
+            <ul class="list webkit-scrollbar" role="list" dir="auto" id="burger-sauces-list">
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="burger-sauce" value="ketchup" data-price="0"> <span>Ketchup</span></span><span class="size-price">$0.00</span></label></li>
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="burger-sauce" value="mayo" data-price="0"> <span>Mayo</span></span><span class="size-price">$0.00</span></label></li>
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="burger-sauce" value="bbq" data-price="0"> <span>BBQ</span></span><span class="size-price">$0.00</span></label></li>
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="burger-sauce" value="mustard" data-price="0"> <span>Mustard</span></span><span class="size-price">$0.00</span></label></li>
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="burger-sauce" value="spicy-sauce" data-price="0"> <span>Spicy Sauce</span></span><span class="size-price">$0.00</span></label></li>
+            </ul>
+          </div>
+          <div class="quantity-selection">
+            <h3 class="selection-title">Quantity</h3>
+            <div class="quantity-controls">
+              <button type="button" class="quantity-btn" id="quantity-decrease">-</button>
+              <input type="number" class="quantity-input" id="quantity-input" value="1" min="1" max="10">
+              <button type="button" class="quantity-btn" id="quantity-increase">+</button>
+            </div>
+          </div>
+          <button class="btn add-to-cart-btn" id="add-to-cart-btn"><ion-icon name="cart-outline"></ion-icon><span>Add to Cart - $<span id="total-price">0.00</span></span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Floating Add to Cart Button for Mobile -->
+  <div class="floating-cart-btn" id="floating-cart-btn">
+    <button class="btn add-to-cart-btn floating-btn" id="floating-add-to-cart-btn">
+      <ion-icon name="cart-outline"></ion-icon>
+      <span>Add to Cart - $<span id="floating-total-price">0.00</span></span>
+    </button>
+  </div>
+  <script src="../../assets/js/script.js" defer></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
+
