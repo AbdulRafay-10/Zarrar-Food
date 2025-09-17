@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Dropdown Component</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Custom Dropdown Component Demo</h1>
+        
+        <!-- Dropdown 1: Food Categories -->
+        <div class="dropdown-container">
+            <div class="dropdown" data-dropdown="food-category">
+                <div class="dropdown-header">
+                    <span class="dropdown-title">Select Food Category</span>
+                    <span class="dropdown-arrow">▼</span>
+                </div>
+                <div class="dropdown-content">
+                    <div class="dropdown-item" data-value="burger">🍔 Burger</div>
+                    <div class="dropdown-item" data-value="pizza">🍕 Pizza</div>
+                    <div class="dropdown-item" data-value="pasta">🍝 Pasta</div>
+                    <div class="dropdown-item" data-value="salad">🥗 Salad</div>
+                    <div class="dropdown-item" data-value="dessert">🍰 Dessert</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dropdown 2: Size Options -->
+        <div class="dropdown-container">
+            <div class="dropdown" data-dropdown="size">
+                <div class="dropdown-header">
+                    <span class="dropdown-title">Choose Size</span>
+                    <span class="dropdown-arrow">▼</span>
+                </div>
+                <div class="dropdown-content">
+                    <div class="dropdown-item" data-value="small">Small</div>
+                    <div class="dropdown-item" data-value="medium">Medium</div>
+                    <div class="dropdown-item" data-value="large">Large</div>
+                    <div class="dropdown-item" data-value="xlarge">Extra Large</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dropdown 3: Toppings -->
+        <div class="dropdown-container">
+            <div class="dropdown" data-dropdown="toppings">
+                <div class="dropdown-header">
+                    <span class="dropdown-title">Add Toppings</span>
+                    <span class="dropdown-arrow">▼</span>
+                </div>
+                <div class="dropdown-content">
+                    <div class="dropdown-item" data-value="cheese">🧀 Extra Cheese</div>
+                    <div class="dropdown-item" data-value="bacon">🥓 Bacon</div>
+                    <div class="dropdown-item" data-value="mushrooms">🍄 Mushrooms</div>
+                    <div class="dropdown-item" data-value="onions">🧅 Onions</div>
+                    <div class="dropdown-item" data-value="peppers">🫑 Bell Peppers</div>
+                    <div class="dropdown-item" data-value="olives">🫒 Olives</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dropdown 4: Delivery Time -->
+        <div class="dropdown-container">
+            <div class="dropdown" data-dropdown="delivery">
+                <div class="dropdown-header">
+                    <span class="dropdown-title">Delivery Time</span>
+                    <span class="dropdown-arrow">▼</span>
+                </div>
+                <div class="dropdown-content">
+                    <div class="dropdown-item" data-value="asap">ASAP (30-45 min)</div>
+                    <div class="dropdown-item" data-value="1hour">1 Hour</div>
+                    <div class="dropdown-item" data-value="2hours">2 Hours</div>
+                    <div class="dropdown-item" data-value="scheduled">Schedule for Later</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Selected Values Display -->
+        <div class="selected-values">
+            <h3>Selected Values:</h3>
+            <div id="selected-display">
+                <p>No selections made yet</p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

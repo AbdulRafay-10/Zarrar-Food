@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sandwich Detail</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body id="top">
+  <section class="section product-detail" id="product-detail">
+    <div class="container">
+      <div class="product-detail-wrapper">
+        <div class="product-image-section">
+          <div class="product-image-container">
+            <img id="product-image" class="product-image" alt="Sandwich">
+            <div class="badge" id="product-badge">-15%</div>
+          </div>
+        </div>
+        <div class="product-info-section">
+          <a href="/index.html#food-menu" class="back-btn"><ion-icon name="arrow-back-outline"></ion-icon><span>Back to Menu</span></a>
+          <h1 id="product-title" class="product-title">Sandwich</h1>
+          <p id="product-description" class="product-description">Customize your sandwich.</p>
+          <div class="product-price"><span class="price-label">Price:</span> <data id="current-price" class="current-price">$0.00</data> <del id="original-price" class="original-price" style="display:none"></del></div>
+          <div class="size-selection">
+            <h3 class="selection-title">Bread</h3>
+            <div class="size-options">
+              <label class="size-option"><input type="radio" name="size" value="white"><span class="size-label">White</span></label>
+              <label class="size-option"><input type="radio" name="size" value="wheat" checked><span class="size-label">Wheat</span></label>
+              <label class="size-option"><input type="radio" name="size" value="multigrain"><span class="size-label">Multigrain</span></label>
+            </div>
+          </div>
+          <div class="topping-selection">
+            <h3 class="selection-title">Fillings</h3>
+            <div class="topping-options">
+              <label class="topping-option"><input type="checkbox" name="topping" value="cheese" data-price="1.00"><span class="topping-label">Cheese</span><span class="topping-price">+$1.00</span></label>
+              <label class="topping-option"><input type="checkbox" name="topping" value="lettuce" data-price="0.50"><span class="topping-label">Lettuce</span><span class="topping-price">+$0.50</span></label>
+              <label class="topping-option"><input type="checkbox" name="topping" value="tomato" data-price="0.50"><span class="topping-label">Tomato</span><span class="topping-price">+$0.50</span></label>
+            </div>
+          </div>
+          <div class="quantity-selection">
+            <h3 class="selection-title">Quantity</h3>
+            <div class="quantity-controls">
+              <button type="button" class="quantity-btn" id="quantity-decrease">-</button>
+              <input type="number" class="quantity-input" id="quantity-input" value="1" min="1" max="10">
+              <button type="button" class="quantity-btn" id="quantity-increase">+</button>
+            </div>
+          </div>
+          <button class="btn add-to-cart-btn" id="add-to-cart-btn"><ion-icon name="cart-outline"></ion-icon><span>Add to Cart - $<span id="total-price">0.00</span></span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="../../assets/js/script.js" defer></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pizza Detail</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <style>
+    /* Scoped tweaks for pizza detail dropdowns (use strong specificity) */
+    #product-detail .dropdown .trigger { display:flex !important; align-items:center !important; justify-content:flex-start !important; padding:8px 12px !important; }
+    #product-detail .dropdown .list { padding:8px 12px !important; box-sizing:border-box !important; border:none !important; }
+    #product-detail .list label.article { display:flex !important; align-items:center !important; justify-content:space-between !important; gap:12px !important; white-space:nowrap !important; }
+    #product-detail .list label.article > span:first-child { display:flex !important; align-items:center !important; gap:8px !important; }
+    #product-detail .list input[type="checkbox"] { margin:0 !important; }
+    /* Toppings: per-option borders and consistent spacing */
+    #product-detail #pizza-toppings-list .listitem label.article { border:1px solid #eee !important; border-radius:8px !important; padding:8px 12px !important; background:#fff !important; }
+    #product-detail #pizza-toppings-list .listitem + .listitem { margin-top:6px !important; }
+    /* Ensure checkbox and text are on one line and vertically centered */
+    #product-detail #pizza-toppings-list label.article span:first-child { display:flex !important; align-items:center !important; gap:8px !important; white-space:nowrap !important; }
+    #product-detail #pizza-toppings-list label.article input[type="checkbox"] { margin:0 !important; align-self:center !important; vertical-align:middle !important; }
+  </style>
+</head>
+<body id="top">
+  <section class="section product-detail" id="product-detail">
+    <div class="container">
+      <div class="product-detail-wrapper">
+        <div class="product-image-section">
+          <div class="product-image-container">
+            <img id="product-image" class="product-image" alt="Pizza">
+            <div class="badge" id="product-badge">-15%</div>
+          </div>
+        </div>
+        <div class="product-info-section">
+          <a href="/index.html#food-menu" class="back-btn"><ion-icon name="arrow-back-outline"></ion-icon><span>Back to Menu</span></a>
+          <h1 id="product-title" class="product-title">Pizza</h1>
+          <p id="product-description" class="product-description">Customize your pizza.</p>
+          <div class="product-price"><span class="price-label">Price:</span> <data id="current-price" class="current-price">$0.00</data> <del id="original-price" class="original-price" style="display:none"></del></div>
+
+          <!-- Pizza Size dropdown -->
+          <div class="dropdown" style="margin-bottom: 20px;">
+            <input hidden class="sr-only" name="pizza-size-dropdown" id="pizza-size-dropdown" type="checkbox" />
+            <label aria-label="dropdown scrollbar" for="pizza-size-dropdown" class="trigger">Pizza Size</label>
+
+            <ul class="list webkit-scrollbar" role="list" dir="auto" id="pizza-size-list">
+              <li class="listitem" role="listitem">
+                <label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+                  <span style="display:flex;align-items:center;gap:8px;">
+                    <input type="checkbox" name="pizza-size-option" value="small" data-multiplier="0.8" />
+                    <span>Small (6")</span>
+                  </span>
+                  <span class="size-price" data-price-display>+$0.00</span>
+                </label>
+              </li>
+              <li class="listitem" role="listitem">
+                <label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+                  <span style="display:flex;align-items:center;gap:8px;">
+                    <input type="checkbox" name="pizza-size-option" value="medium" data-multiplier="1.0" checked />
+                    <span>Medium (9")</span>
+                  </span>
+                  <span class="size-price" data-price-display>+$0.00</span>
+                </label>
+              </li>
+              <li class="listitem" role="listitem">
+                <label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+                  <span style="display:flex;align-items:center;gap:8px;">
+                    <input type="checkbox" name="pizza-size-option" value="large" data-multiplier="1.2" />
+                    <span>Large (12")</span>
+                  </span>
+                  <span class="size-price" data-price-display>+$0.00</span>
+                </label>
+              </li>
+              <li class="listitem" role="listitem">
+                <label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+                  <span style="display:flex;align-items:center;gap:8px;">
+                    <input type="checkbox" name="pizza-size-option" value="xlarge" data-multiplier="1.5" />
+                    <span>Extra Large (15")</span>
+                  </span>
+                  <span class="size-price" data-price-display>+$0.00</span>
+                </label>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Crust Type dropdown -->
+          <div class="dropdown" style="margin-bottom: 20px;">
+            <input hidden class="sr-only" name="pizza-crust-dropdown" id="pizza-crust-dropdown" type="checkbox" />
+            <label aria-label="dropdown scrollbar" for="pizza-crust-dropdown" class="trigger">Crust Type</label>
+            <ul class="list webkit-scrollbar" role="list" dir="auto" id="pizza-crust-list">
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="pizza-crust" value="thin" data-price="0" checked> <span>Thin Crust</span></span><span class="size-price">$0.00</span></label></li>
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="pizza-crust" value="thick" data-price="1.00"> <span>Thick Crust</span></span><span class="size-price">$1.00</span></label></li>
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="pizza-crust" value="stuffed" data-price="2.00"> <span>Stuffed Crust</span></span><span class="size-price">$2.00</span></label></li>
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="pizza-crust" value="cheese-burst" data-price="2.50"> <span>Cheese Burst</span></span><span class="size-price">$2.50</span></label></li>
+            </ul>
+          </div>
+
+          <!-- Base Sauce dropdown -->
+          <div class="dropdown" style="margin-bottom: 20px;">
+            <input hidden class="sr-only" name="pizza-base-dropdown" id="pizza-base-dropdown" type="checkbox" />
+            <label aria-label="dropdown scrollbar" for="pizza-base-dropdown" class="trigger">Base Sauce</label>
+            <ul class="list webkit-scrollbar" role="list" dir="auto" id="pizza-base-list">
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="pizza-base" value="tomato" data-price="0" checked> <span>Tomato Sauce</span></span><span class="size-price">$0.00</span></label></li>
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="pizza-base" value="bbq" data-price="0.50"> <span>BBQ Sauce</span></span><span class="size-price">$0.50</span></label></li>
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="pizza-base" value="white" data-price="0.50"> <span>White Sauce</span></span><span class="size-price">$0.50</span></label></li>
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="pizza-base" value="pesto" data-price="1.00"> <span>Pesto</span></span><span class="size-price">$1.00</span></label></li>
+            </ul>
+          </div>
+
+          <!-- Cheese Options dropdown -->
+          <div class="dropdown" style="margin-bottom: 20px;">
+            <input hidden class="sr-only" name="pizza-cheese-dropdown" id="pizza-cheese-dropdown" type="checkbox" />
+            <label aria-label="dropdown scrollbar" for="pizza-cheese-dropdown" class="trigger">Cheese Options</label>
+            <ul class="list webkit-scrollbar" role="list" dir="auto" id="pizza-cheese-list">
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="pizza-cheese" value="regular" data-price="0" checked> <span>Regular Cheese</span></span><span class="size-price">$0.00</span></label></li>
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="pizza-cheese" value="extra" data-price="1.00"> <span>Extra Cheese</span></span><span class="size-price">$1.00</span></label></li>
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="pizza-cheese" value="vegan" data-price="1.00"> <span>Vegan Cheese</span></span><span class="size-price">$1.00</span></label></li>
+              <li class="listitem" role="listitem"><label class="article" style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:8px;"><input type="checkbox" name="pizza-cheese" value="none" data-price="0"> <span>No Cheese</span></span><span class="size-price">$0.00</span></label></li>
+            </ul>
+          </div>
+
+          <!-- Toppings (multiple) dropdown -->
+          <div class="dropdown" style="margin-bottom: 20px;">
+            <input hidden class="sr-only" name="pizza-toppings-dropdown" id="pizza-toppings-dropdown" type="checkbox" />
+            <label aria-label="dropdown scrollbar" for="pizza-toppings-dropdown" class="trigger">Toppings (Choose Multiple)</label>
+            <ul class="list webkit-scrollbar" role="list" dir="auto" id="pizza-toppings-list">
+              <li class="listitem" role="listitem">
+                <article class="article">
+                  <strong>Veggies</strong>
+                  <div style="display:grid;gap:6px;margin-top:8px;">
+                    <label style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span><input type="checkbox" name="pizza-topping" value="onion" data-price="0.50"> Onion</span><span class="size-price">$0.50</span></label>
+                    <label style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span><input type="checkbox" name="pizza-topping" value="capsicum" data-price="0.50"> Capsicum</span><span class="size-price">$0.50</span></label>
+                    <label style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span><input type="checkbox" name="pizza-topping" value="tomato" data-price="0.50"> Tomato</span><span class="size-price">$0.50</span></label>
+                    <label style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span><input type="checkbox" name="pizza-topping" value="jalapenos" data-price="0.75"> Jalapeños</span><span class="size-price">$0.75</span></label>
+                    <label style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span><input type="checkbox" name="pizza-topping" value="olives" data-price="0.75"> Olives</span><span class="size-price">$0.75</span></label>
+                    <label style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span><input type="checkbox" name="pizza-topping" value="mushrooms" data-price="0.75"> Mushrooms</span><span class="size-price">$0.75</span></label>
+                    <label style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span><input type="checkbox" name="pizza-topping" value="corn" data-price="0.50"> Corn</span><span class="size-price">$0.50</span></label>
+                  </div>
+                </article>
+              </li>
+              <li class="listitem" role="listitem">
+                <article class="article">
+                  <strong>Proteins</strong>
+                  <div style="display:grid;gap:6px;margin-top:8px;">
+                    <label style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span><input type="checkbox" name="pizza-topping" value="pepperoni" data-price="1.25"> Pepperoni</span><span class="size-price">$1.25</span></label>
+                    <label style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span><input type="checkbox" name="pizza-topping" value="chicken" data-price="1.25"> Chicken</span><span class="size-price">$1.25</span></label>
+                    <label style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span><input type="checkbox" name="pizza-topping" value="beef" data-price="1.25"> Beef</span><span class="size-price">$1.25</span></label>
+                    <label style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span><input type="checkbox" name="pizza-topping" value="bacon" data-price="1.25"> Bacon</span><span class="size-price">$1.25</span></label>
+                    <label style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span><input type="checkbox" name="pizza-topping" value="sausage" data-price="1.25"> Sausage</span><span class="size-price">$1.25</span></label>
+                  </div>
+                </article>
+              </li>
+              <li class="listitem" role="listitem">
+                <article class="article">
+                  <strong>Premium</strong>
+                  <div style="display:grid;gap:6px;margin-top:8px;">
+                    <label style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span><input type="checkbox" name="pizza-topping" value="shrimp" data-price="1.75"> Shrimp</span><span class="size-price">$1.75</span></label>
+                    <label style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span><input type="checkbox" name="pizza-topping" value="pineapple" data-price="1.00"> Pineapple</span><span class="size-price">$1.00</span></label>
+                    <label style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span><input type="checkbox" name="pizza-topping" value="extra-mozzarella" data-price="1.25"> Extra Mozzarella</span><span class="size-price">$1.25</span></label>
+                  </div>
+                </article>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="quantity-selection">
+            <h3 class="selection-title">Quantity</h3>
+            <div class="quantity-controls">
+              <button type="button" class="quantity-btn" id="quantity-decrease">-</button>
+              <input type="number" class="quantity-input" id="quantity-input" value="1" min="1" max="10">
+              <button type="button" class="quantity-btn" id="quantity-increase">+</button>
+            </div>
+          </div>
+          <button class="btn add-to-cart-btn" id="add-to-cart-btn"><ion-icon name="cart-outline"></ion-icon><span>Add to Cart - $<span id="total-price">0.00</span></span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Floating Add to Cart Button for Mobile -->
+  <div class="floating-cart-btn" id="floating-cart-btn">
+    <button class="btn add-to-cart-btn floating-btn" id="floating-add-to-cart-btn">
+      <ion-icon name="cart-outline"></ion-icon>
+      <span>Add to Cart - $<span id="floating-total-price">0.00</span></span>
+    </button>
+  </div>
+  <script src="../../assets/js/script.js" defer></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
+
