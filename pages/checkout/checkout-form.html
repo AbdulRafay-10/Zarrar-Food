@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout Form - Foodie</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Rubik:wght@400;500;600;700&family=Shadows+Into+Light&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <h1>
+        <a href="../index.html" class="logo">Foodie<span class="span">.</span></a>
+      </h1>
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+
+          <li class="nav-item">
+            <a href="index.html#home" class="navbar-link" data-nav-link>Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="index.html#about" class="navbar-link" data-nav-link>About Us</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="index.html#food-menu" class="navbar-link" data-nav-link>Shop</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="index.html#blog" class="navbar-link" data-nav-link>Blog</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="navbar-link" data-nav-link>Contact Us</a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <div class="header-btn-group">
+        <button class="search-btn" aria-label="Search" data-search-btn>
+          <ion-icon name="search-outline"></ion-icon>
+        </button>
+
+        <button class="btn btn-hover">Reservation</button>
+
+        <button class="nav-toggle-btn" aria-label="Toggle Menu" data-menu-toggle-btn>
+          <span class="line top"></span>
+          <span class="line middle"></span>
+          <span class="line bottom"></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- 
+    - #SEARCH BOX
+  -->
+
+  <div class="search-container" data-search-container>
+
+    <div class="search-box">
+      <input type="search" name="search" aria-label="Search here" placeholder="Type keywords here..."
+        class="search-input">
+
+      <button class="search-submit" aria-label="Submit search" data-search-submit-btn>
+        <ion-icon name="search-outline"></ion-icon>
+      </button>
+    </div>
+
+    <button class="search-close-btn" aria-label="Cancel search" data-search-close-btn></button>
+
+  </div>
+
+  <main>
+    <article>
+
+      <!-- 
+        - #CHECKOUT FORM PAGE
+      -->
+
+      <section class="section checkout-page" id="checkout-page">
+        <div class="container">
+
+          <div class="checkout-header">
+            <h1 class="checkout-title">Checkout Form</h1>
+            <a href="../order/order.html" class="back-to-cart-btn">
+              <ion-icon name="arrow-back-outline"></ion-icon>
+              <span>Back to Cart</span>
+            </a>
+          </div>
+
+          <div class="checkout-content">
+
+            <!-- Checkout Form Section -->
+            <div class="checkout-form-section">
+              <form class="checkout-form" id="checkout-form">
+                
+                <!-- Personal Information -->
+                <div class="form-section">
+                  <h2 class="form-section-title">Personal Information</h2>
+                  
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="first-name" class="form-label">First Name *</label>
+                      <input type="text" id="first-name" name="firstName" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="last-name" class="form-label">Last Name *</label>
+                      <input type="text" id="last-name" name="lastName" class="form-input" required>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email" class="form-label">Email Address *</label>
+                    <input type="email" id="email" name="email" class="form-input" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="phone" class="form-label">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" class="form-input" required>
+                  </div>
+                </div>
+
+                <!-- Delivery Address -->
+                <div class="form-section">
+                  <h2 class="form-section-title">Delivery Address</h2>
+                  
+                  <div class="form-group">
+                    <label for="address" class="form-label">Street Address *</label>
+                    <input type="text" id="address" name="address" class="form-input" required>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="city" class="form-label">City *</label>
+                      <input type="text" id="city" name="city" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="state" class="form-label">State *</label>
+                      <input type="text" id="state" name="state" class="form-input" required>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="zip-code" class="form-label">ZIP Code *</label>
+                      <input type="text" id="zip-code" name="zipCode" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="country" class="form-label">Country *</label>
+                      <select id="country" name="country" class="form-input" required>
+                        <option value="">Select Country</option>
+                        <option value="US">United States</option>
+                        <option value="CA">Canada</option>
+                        <option value="UK">United Kingdom</option>
+                        <option value="AU">Australia</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Delivery Instructions -->
+                <div class="form-section">
+                  <h2 class="form-section-title">Delivery Instructions</h2>
+                  
+                  <div class="form-group">
+                    <label for="instructions" class="form-label">Special Instructions (Optional)</label>
+                    <textarea id="instructions" name="instructions" class="form-textarea" rows="4" 
+                      placeholder="Any special delivery instructions..."></textarea>
+                  </div>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="form-section">
+                  <h2 class="form-section-title">Payment Method</h2>
+                  
+                  <div class="payment-methods">
+                    <label class="payment-method">
+                      <input type="radio" name="payment" value="cash" checked>
+                      <span class="payment-label">
+                        <ion-icon name="cash-outline"></ion-icon>
+                        <span>Cash on Delivery</span>
+                      </span>
+                    </label>
+                    
+                    <label class="payment-method">
+                      <input type="radio" name="payment" value="card">
+                      <span class="payment-label">
+                        <ion-icon name="card-outline"></ion-icon>
+                        <span>Credit/Debit Card</span>
+                      </span>
+                    </label>
+                  </div>
+
+                  <!-- Credit Card Form (Hidden by default) -->
+                  <div class="credit-card-form" id="credit-card-form" style="display: none;">
+                    <div class="form-group">
+                      <label for="card-number" class="form-label">Card Number *</label>
+                      <input type="text" id="card-number" name="cardNumber" class="form-input" 
+                             placeholder="1234 5678 9012 3456" maxlength="19">
+                    </div>
+
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label for="expiry-date" class="form-label">Expiry Date *</label>
+                        <input type="text" id="expiry-date" name="expiryDate" class="form-input" 
+                               placeholder="MM/YY" maxlength="5">
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="cvv" class="form-label">CVV *</label>
+                        <input type="text" id="cvv" name="cvv" class="form-input" 
+                               placeholder="123" maxlength="4">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="cardholder-name" class="form-label">Cardholder Name *</label>
+                      <input type="text" id="cardholder-name" name="cardholderName" class="form-input" 
+                             placeholder="John Doe">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Place Order Button -->
+                <div class="form-actions">
+                  <button type="submit" class="btn place-order-btn" id="place-order-btn">
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                    <span>Place Order</span>
+                  </button>
+                </div>
+
+              </form>
+            </div>
+
+            <!-- Order Summary Sidebar -->
+            <div class="order-summary-sidebar">
+              <div class="order-summary-card">
+                <h2 class="summary-title">Order Summary</h2>
+                
+                <div class="order-items" id="order-items">
+                  <!-- Order items will be dynamically populated here -->
+                </div>
+                
+                <div class="summary-details">
+                  <div class="summary-row">
+                    <span class="summary-label">Subtotal:</span>
+                    <span class="summary-value" id="subtotal">$0.00</span>
+                  </div>
+                  
+                  <div class="summary-row">
+                    <span class="summary-label">Tax (8.5%):</span>
+                    <span class="summary-value" id="tax">$0.00</span>
+                  </div>
+                  
+                  <div class="summary-row">
+                    <span class="summary-label">Delivery Fee:</span>
+                    <span class="summary-value" id="delivery-fee">$3.99</span>
+                  </div>
+                  
+                  <div class="summary-row total-row">
+                    <span class="summary-label">Total:</span>
+                    <span class="summary-value" id="total">$0.00</span>
+                  </div>
+                </div>
+
+                <div class="delivery-info">
+                  <h3 class="delivery-title">Delivery Information</h3>
+                  <p class="delivery-time">Estimated delivery time: 30-45 minutes</p>
+                  <p class="delivery-note">We'll call you when your order is ready for pickup or delivery.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+
+    <div class="footer-top" style="background-image: url('./assets/images/footer-illustration.png')">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="../index.html" class="logo">Foodie<span class="span">.</span></a>
+
+          <p class="footer-text">
+            Financial experts support or help you to to find out which way you can raise your funds more.
+          </p>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-pinterest"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Contact Info</p>
+          </li>
+
+          <li>
+            <p class="footer-list-item">+1 (062) 109-9222</p>
+          </li>
+
+          <li>
+            <p class="footer-list-item">Info@YourGmail24.com</p>
+          </li>
+
+          <li>
+            <address class="footer-list-item">153 Williamson Plaza, Maggieberg, MT 09514</address>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Opening Hours</p>
+          </li>
+
+          <li>
+            <p class="footer-list-item">Monday-Friday: 08:00-22:00</p>
+          </li>
+
+          <li>
+            <p class="footer-list-item">Tuesday 4PM: Till Mid Night</p>
+          </li>
+
+          <li>
+            <p class="footer-list-item">Saturday: 10:00-16:00</p>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="copyright-text">
+          &copy; 2022 <a href="#" class="copyright-link">codewithsadee</a> All Rights Reserved.
+        </p>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn" aria-label="Back to top" data-back-top-btn>
+    <ion-icon name="chevron-up"></ion-icon>
+  </a>
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js" defer></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

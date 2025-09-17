@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Detail - Foodie</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Rubik:wght@400;500;600;700&family=Shadows+Into+Light&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <h1>
+        <a href="#" class="logo">Foodie<span class="span">.</span></a>
+      </h1>
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+
+          <li class="nav-item">
+            <a href="#home" class="navbar-link" data-nav-link>Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#about" class="navbar-link" data-nav-link>About Us</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#food-menu" class="navbar-link" data-nav-link>Shop</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#blog" class="navbar-link" data-nav-link>Blog</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="navbar-link" data-nav-link>Contact Us</a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <div class="header-btn-group">
+        <button class="search-btn" aria-label="Search" data-search-btn>
+          <ion-icon name="search-outline"></ion-icon>
+        </button>
+
+        <a href="../order/order.html" class="cart-btn" id="cart-btn">
+          <ion-icon name="cart-outline"></ion-icon>
+          <span class="cart-count" id="cart-count">0</span>
+        </a>
+
+        <button class="btn btn-hover">Reservation</button>
+
+        <button class="nav-toggle-btn" aria-label="Toggle Menu" data-menu-toggle-btn>
+          <span class="line top"></span>
+          <span class="line middle"></span>
+          <span class="line bottom"></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- 
+    - #SEARCH BOX
+  -->
+
+  <div class="search-container" data-search-container>
+
+    <div class="search-box">
+      <input type="search" name="search" aria-label="Search here" placeholder="Type keywords here..."
+        class="search-input">
+
+      <button class="search-submit" aria-label="Submit search" data-search-submit-btn>
+        <ion-icon name="search-outline"></ion-icon>
+      </button>
+    </div>
+
+    <button class="search-close-btn" aria-label="Cancel search" data-search-close-btn></button>
+
+  </div>
+
+  <main>
+    <article>
+
+      <!-- 
+        - #PRODUCT DETAIL
+      -->
+
+      <section class="section product-detail" id="product-detail">
+        <div class="container">
+
+          <div class="product-detail-wrapper">
+
+            <!-- Product Image Section -->
+            <div class="product-image-section">
+              <div class="product-image-container">
+                <img src="../../assets/images/food-menu-1.png" alt="Fried Chicken Unlimited" class="product-image" id="product-image">
+                <div class="badge" id="product-badge">-15%</div>
+              </div>
+            </div>
+
+            <!-- Product Info Section -->
+            <div class="product-info-section">
+              
+              <!-- Back Button -->
+              <a href="/index.html#food-menu" class="back-btn">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+                <span>Back to Menu</span>
+              </a>
+
+              <!-- Product Title -->
+              <h1 class="product-title" id="product-title">Fried Chicken Unlimited</h1>
+              
+              <!-- Product Description -->
+              <p class="product-description" id="product-description">
+                Crispy golden fried chicken with our signature blend of herbs and spices. 
+                Served with your choice of sides and dipping sauces.
+              </p>
+
+              <!-- Product Rating -->
+              <div class="product-rating">
+                <div class="rating-wrapper">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                </div>
+                <span class="rating-text">(4.8) 124 reviews</span>
+              </div>
+
+              <!-- Product Price -->
+              <div class="product-price">
+                <span class="price-label">Price:</span>
+                <data class="current-price" id="current-price">$49.00</data>
+                <del class="original-price" id="original-price">$69.00</del>
+              </div>
+
+              
+
+              <!-- Quantity Selection -->
+              <div class="quantity-selection">
+                <h3 class="selection-title">Quantity</h3>
+                <div class="quantity-controls">
+                  <button type="button" class="quantity-btn" id="quantity-decrease">-</button>
+                  <input type="number" class="quantity-input" id="quantity-input" value="1" min="1" max="10">
+                  <button type="button" class="quantity-btn" id="quantity-increase">+</button>
+                </div>
+              </div>
+
+              <!-- Add to Cart Button -->
+              <button class="btn add-to-cart-btn" id="add-to-cart-btn">
+                <ion-icon name="cart-outline"></ion-icon>
+                <span>Add to Cart - $<span id="total-price">49.00</span></span>
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+      
+      <!-- Floating Add to Cart Button for Mobile -->
+      <div class="floating-cart-btn" id="floating-cart-btn">
+        <button class="btn add-to-cart-btn floating-btn" id="floating-add-to-cart-btn">
+          <ion-icon name="cart-outline"></ion-icon>
+          <span>Add to Cart - $<span id="floating-total-price">49.00</span></span>
+        </button>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+
+    <div class="footer-top" style="background-image: url('../../assets/images/footer-illustration.png')">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="../../index.html" class="logo">Foodie<span class="span">.</span></a>
+
+          <p class="footer-text">
+            Financial experts support or help you to to find out which way you can raise your funds more.
+          </p>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-pinterest"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Contact Info</p>
+          </li>
+
+          <li>
+            <p class="footer-list-item">+1 (062) 109-9222</p>
+          </li>
+
+          <li>
+            <p class="footer-list-item">Info@YourGmail24.com</p>
+          </li>
+
+          <li>
+            <address class="footer-list-item">153 Williamson Plaza, Maggieberg, MT 09514</address>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Opening Hours</p>
+          </li>
+
+          <li>
+            <p class="footer-list-item">Monday-Friday: 08:00-22:00</p>
+          </li>
+
+          <li>
+            <p class="footer-list-item">Tuesday 4PM: Till Mid Night</p>
+          </li>
+
+          <li>
+            <p class="footer-list-item">Saturday: 10:00-16:00</p>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="copyright-text">
+          &copy; 2022 <a href="#" class="copyright-link">codewithsadee</a> All Rights Reserved.
+        </p>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn" aria-label="Back to top" data-back-top-btn>
+    <ion-icon name="chevron-up"></ion-icon>
+  </a>
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="../../assets/js/script.js" defer></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
